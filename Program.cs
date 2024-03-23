@@ -10,13 +10,22 @@ namespace HelloWorld
 {
     class Program
     {
-        static void Main(string[] args)
+        /*static void Main(string[] args)
         {
             using (Game game = new Game())
             {
                 game.Run();
             }
+        }*/
+
+        static void Main(string[] args)
+        {
+            using (Cube game = new Cube())
+            {
+                game.Run();
+            }
         }
+
 
     }
 }
