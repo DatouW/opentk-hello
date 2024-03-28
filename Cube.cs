@@ -169,6 +169,10 @@ namespace HelloWorld
                   {
                       Title = title,
                       ClientSize = new Vector2i(width, height),
+                       Size = new Vector2i(width, height),
+=========
+                       ClientSize = new Vector2i(width, height),
+>>>>>>>>> Temporary merge branch 2
 
                   })
         {
@@ -278,10 +282,6 @@ namespace HelloWorld
             GL.DrawElements(PrimitiveType.Triangles, ibo.Length, DrawElementsType.UnsignedInt, 0);
            
 
-            SwapBuffers();
-            base.OnRenderFrame(args);
-        }
-
         protected override void OnResize(ResizeEventArgs e)
         {
             GL.Viewport(0, 0, e.Width, e.Height);
@@ -289,6 +289,18 @@ namespace HelloWorld
             width = e.Width;
             base.OnResize(e);
         }
+        /*static void Main(string[] args)
+
+>>>>>>>>> Temporary merge branch 2
+        {
+            using (Cube program = new Cube())
+            {
+                program.Run();
+            }
+            base.OnUnload();
+        }
+        }
+=========
 
         protected override void OnUnload()
         {
@@ -297,8 +309,7 @@ namespace HelloWorld
             GL.UseProgram(0);
             GL.DeleteProgram(shaderProgramObject);
 
-            base.OnUnload();
-        }
+>>>>>>>>> Temporary merge branch 2
     }
 }
 
