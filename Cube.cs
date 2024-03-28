@@ -160,8 +160,6 @@ namespace HelloWorld
 
         };
 
-
-
         public Cube(int width = 1280, int height = 768, string title = "Televisor 3D")
             : base(
                   GameWindowSettings.Default,
@@ -169,11 +167,6 @@ namespace HelloWorld
                   {
                       Title = title,
                       ClientSize = new Vector2i(width, height),
-                       Size = new Vector2i(width, height),
-=========
-                       ClientSize = new Vector2i(width, height),
->>>>>>>>> Temporary merge branch 2
-
                   })
         {
             this.CenterWindow();
@@ -258,7 +251,7 @@ namespace HelloWorld
             GL.BindVertexArray(vertexArrayObject);
 
             model = Matrix4.Identity;
-                //* Matrix4.CreateRotationX(MathHelper.DegreesToRadians(90));
+            //* Matrix4.CreateRotationX(MathHelper.DegreesToRadians(90));
             view = Matrix4.LookAt(new Vector3(0, 0, -3), Vector3.Zero, Vector3.UnitY);
             perspective = Matrix4.CreatePerspectiveFieldOfView(MathHelper.DegreesToRadians(45), width / height, 0.1f, 1000f);
 
@@ -280,6 +273,9 @@ namespace HelloWorld
 
             // Dibujar el triángulo
             GL.DrawElements(PrimitiveType.Triangles, ibo.Length, DrawElementsType.UnsignedInt, 0);
+            SwapBuffers();
+            base.OnRenderFrame(args);
+        }
            
 
         protected override void OnResize(ResizeEventArgs e)
@@ -289,18 +285,6 @@ namespace HelloWorld
             width = e.Width;
             base.OnResize(e);
         }
-        /*static void Main(string[] args)
-
->>>>>>>>> Temporary merge branch 2
-        {
-            using (Cube program = new Cube())
-            {
-                program.Run();
-            }
-            base.OnUnload();
-        }
-        }
-=========
 
         protected override void OnUnload()
         {
@@ -308,8 +292,7 @@ namespace HelloWorld
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
             GL.UseProgram(0);
             GL.DeleteProgram(shaderProgramObject);
-
->>>>>>>>> Temporary merge branch 2
+        }
     }
 }
 
